@@ -1,15 +1,21 @@
 import React from "react";
 import { Header } from "./components/Header";
-import ChartOne from "./components/WeightChart";
+import ChartTwo from "./components/WeightChart-hook";
 import Form from "./components/Form";
+import Charty from "./components/NewChart-testing";
 import "./styles.css";
+
+export const GlobalContext = React.createContext();
 
 export default function App() {
   return (
     <div className="App">
-      <Header />
-      <ChartOne />
-      <Form />
+      <GlobalContext.Provider value={'bearBear'}>
+        <Header />
+        <ChartTwo />
+        <Form />
+        <Charty/>
+      </GlobalContext.Provider>
     </div>
   );
 }
