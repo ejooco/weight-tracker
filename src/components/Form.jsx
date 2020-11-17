@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import moment from "moment";
+import axios from "axios";
 
 const Styles = styled.div`
   .submitButton {
@@ -46,12 +47,16 @@ export default function Form() {
 
   const onSubmit = (data) => {
     console.log(data);
+    data.weight = parseFloat(data.weight);
+    console.log(data);
+    axios.post('http://localhost:5000/weight-tracker-entries/add', data).then(res => console.log(res.data));
   };
   return (
     <Styles>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          type="text"
+          type="number"
+          step="any"
           placeholder="Enter Weight"
           name="weight"
           ref={register}
