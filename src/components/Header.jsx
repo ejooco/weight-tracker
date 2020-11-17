@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { GlobalContext } from '../App';
+import { GlobalContext } from "../DataProvider";
 
 export const Header = () => {
-  const dog = useContext(GlobalContext)
-  return <h2>Weight Tracker for {dog}</h2>;
+  const context = useContext(GlobalContext);
+  return <h2>Weight Tracker {context}</h2>;
 };

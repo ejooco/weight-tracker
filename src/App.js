@@ -4,18 +4,18 @@ import ChartTwo from "./components/WeightChart-hook";
 import Form from "./components/Form";
 import Charty from "./components/NewChart-testing";
 import "./styles.css";
+import {DataProvider} from "./DataProvider";
 
-export const GlobalContext = React.createContext();
 
 export default function App() {
   return (
     <div className="App">
-      <GlobalContext.Provider value={'bearBear'}>
+      <DataProvider>
         <Header />
         <ChartTwo />
         <Form />
         <Charty/>
-      </GlobalContext.Provider>
+      </DataProvider>
     </div>
   );
 }
